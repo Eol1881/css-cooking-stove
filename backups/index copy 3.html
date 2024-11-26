@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+
+  <body class="relative m-0 h-screen bg-[#312e26]">
+    <div class="relative h-[500px] w-[500px]">
+      <div class="fake absolute z-50 h-full w-full overflow-x-auto overflow-y-hidden bg-yellow-700/20">
+        <div class="w-[4000px]"></div>
+      </div>
+      <div class="wrapper relative h-full w-full transition-all">
+        <div class="content h-[4000px] w-[4000px] bg-green-600 transition-all"></div>
+      </div>
+    </div>
+
+    <style>
+      .fake {
+        scrollbar-width: none; /* Скрывает полосу прокрутки */
+        -ms-overflow-style: none; /* Для Internet Explorer и Edge */
+      }
+      .wrapper {
+        overflow-x: auto;
+        overflow-y: auto;
+        scrollbar-width: none; /* Скрывает полосу прокрутки */
+        -ms-overflow-style: none; /* Для Internet Explorer и Edge */
+      }
+      .content {
+        background-image: url('https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?ixid=2yJhcHBfaWQiOjEyMDd9&fm=jpg&w=700&h=700&fit=min');
+      }
+    </style>
+    <script>
+      const wrapper = document.querySelector('.wrapper');
+      const content = document.querySelector('.content');
+      const fake = document.querySelector('.fake');
+
+      let isScrolling;
+
+      function syncScroll(e) {
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+          wrapper.scrollLeft = wrapper.scrollTop;
+        }, 5);
+      }
+
+      function syncScroll2(value) {
+        console.log(123);
+
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+          wrapper.scrollLeft = value;
+          wrapper.scrollTop = value;
+        }, 5);
+      }
+
+      wrapper.addEventListener('scroll', (e) => {
+        requestAnimationFrame(() => {
+          syncScroll(e);
+        });
+      });
+
+      fake.addEventListener('scroll', (e) => {
+        requestAnimationFrame(() => {
+          syncScroll2(e.target.scrollLeft);
+        });
+      });
+
+      syncScroll();
+    </script>
+  </body>
+</html>

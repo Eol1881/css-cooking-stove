@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+
+  <body class="m-0 h-screen bg-[#312e26]">
+    <div class="wrapper transition-all">
+      <div class="content h-[4000px] w-[4000px] bg-green-600 transition-all"></div>
+    </div>
+
+    <style>
+      .wrapper {
+        width: 500px;
+        height: 500px;
+        overflow-x: auto; /* this is important! */
+        overflow-y: hidden;
+      }
+      .content {
+        background-image: url('https://images.unsplash.com/photo-1714312634720-ae1f906d09d6?q=80&w=200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      }
+    </style>
+    <script>
+      // document.querySelector('.wrapper').addEventListener('scroll', (e) => {
+      //   // console.log(1, e.target.scrollTop, e.target.scrollLeft);
+      //   e.target.scrollLeft = e.target.scrollTop;
+      // });
+
+      const wrapper = document.querySelector('.wrapper');
+      const content = document.querySelector('.content');
+
+      let isScrolling;
+
+      function syncScroll(e) {
+        // console.log(e.target.scrollTop, e.target.scrollLeft);
+        // const currentScrollTop = wrapper.scrollTop;
+        // wrapper.scrollLeft = currentScrollTop;
+
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+          wrapper.scrollLeft = wrapper.scrollTop;
+        }, 0);
+      }
+
+      wrapper.addEventListener('scroll', (e) => {
+        // console.log(e.target.scrollTop, e.target.scrollLeft);
+        requestAnimationFrame(() => {
+          syncScroll(e);
+        });
+      });
+
+      // Initial synchronization
+      syncScroll();
+    </script>
+  </body>
+</html>

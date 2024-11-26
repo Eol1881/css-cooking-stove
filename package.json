@@ -1,0 +1,23 @@
+{
+  "name": "5345345",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "tailwind": "tailwindcss -i ./input.css -o ./output.css --watch",
+    "live": "live-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "live-server": "^1.2.2",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.14"
+  },
+  "dependencies": {
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.9"
+  }
+}
