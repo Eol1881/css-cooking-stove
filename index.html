@@ -2,15 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link href="./output.css" rel="stylesheet" />
   </head>
 
   <body class="m-0 h-screen bg-[#312e26]">
     <div class="relative h-[100vw] max-h-[500px] w-[100vw] max-w-[500px]">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       <div class="interceptor absolute z-50 h-full w-full overflow-y-hidden bg-yellow-700/20">
-        <div class="w-[4000px]"></div>
+        <div class="h-2 w-[4000px]"></div>
       </div>
       <div class="wrapper h-full w-full overflow-auto">
         <div class="content relative h-[4000px] w-[4000px] bg-green-600">
@@ -150,36 +150,40 @@
       }
     </style>
     <script>
-      const wrapper = document.querySelector('.wrapper');
-      const content = document.querySelector('.content');
-      const interceptor = document.querySelector('.interceptor');
+      try {
+        const wrapper = document.querySelector('.wrapper');
+        const content = document.querySelector('.content');
+        const interceptor = document.querySelector('.interceptor');
 
-      const offset = initWrapperScrollPosition(wrapper);
+        const offset = initWrapperScrollPosition(wrapper);
 
-      let isScrolling;
+        let isScrolling;
 
-      const syncScroll = (value) => {
-        // console.log('syncScroll', value);
+        const syncScroll = (value) => {
+          // console.log('syncScroll', value);
 
-        window.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-          wrapper.scrollLeft = value;
-          wrapper.scrollTop = 4000 - offset - value;
-        }, 5);
-      };
+          window.clearTimeout(isScrolling);
+          isScrolling = setTimeout(() => {
+            wrapper.scrollLeft = value;
+            wrapper.scrollTop = 4000 - offset - value;
+          }, 5);
+        };
 
-      interceptor.addEventListener('scroll', (e) => {
-        requestAnimationFrame(() => {
-          syncScroll(e.target.scrollLeft);
+        interceptor.addEventListener('scroll', (e) => {
+          requestAnimationFrame(() => {
+            syncScroll(e.target.scrollLeft);
+          });
         });
-      });
 
-      function initWrapperScrollPosition(wrapper) {
-        const windowInnerWidth = window.innerWidth;
-        const offset = Math.min(windowInnerWidth, 500);
-        wrapper.scrollTop = 4000 - offset;
-        wrapper.scrollLeft = 0;
-        return offset;
+        function initWrapperScrollPosition(wrapper) {
+          const windowInnerWidth = window.innerWidth;
+          const offset = Math.min(windowInnerWidth, 500);
+          wrapper.scrollTop = 4000 - offset;
+          wrapper.scrollLeft = 0;
+          return offset;
+        }
+      } catch (error) {
+        alert(error);
       }
     </script>
   </body>
