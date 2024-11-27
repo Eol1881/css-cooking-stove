@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+
+  <body class="m-0 h-screen bg-[#312e26]">
+    <div class="relative h-[100vw] max-h-[500px] w-[100vw] max-w-[500px] bg-white">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <div class="interceptor absolute z-50 h-full w-full overflow-y-hidden bg-yellow-700/20">
+        <div class="h-2 w-[6000px]"></div>
+      </div>
+      <div class="wrapper h-full w-full overflow-auto">
+        <div class="content relative h-[6000px] w-[6000px]">
+          <svg fill="none" class="absolute bottom-0 left-0 h-[6000px] w-[6000px]">
+            <path
+              stroke="url(#paint0_linear_1887_3134)"
+              stroke="#F58859"
+              stroke-width="4"
+              stroke-linejoin="round"
+              d="M0 6000
+
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60
+
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60
+
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60
+
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60
+
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60
+
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60
+
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60
+
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60
+
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60
+
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60 
+              v-60 h60
+              "
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_1887_3134"
+                x2="0%"
+                y2="0%"
+                x1="100%"
+                y1="0%"
+                gradientUnits="userSpaceOnUse"
+                gradientTransform="rotate(90)"
+              >
+                <stop offset="0%" stop-color="#F58859" />
+                <stop class="ladder-gradient-start" stop-color="#F58859" />
+                <stop class="ladder-gradient-end" stop-color="#EDEDED" />
+                <stop offset="100%" stop-color="#EDEDED" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <div class="user-marker absolute h-[40px] w-[40px] rounded-full bg-cover"></div>
+
+          <div class="digits relative h-full w-full"></div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .interceptor,
+      .wrapper {
+        /* Скрывает полосу прокрутки + Для Internet Explorer и Edge*/
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .content {
+        /* background-image: url('https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?ixid=2yJhcHBfaWQiOjEyMDd9&fm=jpg&w=700&h=700&fit=min'); */
+        /* background-image: url('https://static.tildacdn.com/tild3062-3632-4934-b561-396266353164/11111.png'); */
+      }
+      .user-marker {
+        background-image: url('https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?ixid=2yJhcHBfaWQiOjEyMDd9&fm=jpg&w=700&h=700&fit=min');
+      }
+      .digit {
+        position: absolute;
+        font-weight: bold;
+        /* background-color: red; */
+        width: 60px;
+        text-align: center;
+      }
+    </style>
+    <script>
+      const CONFIG = {
+        ladderWidth: 6000,
+        maxWrapperWidth: 500,
+      };
+
+      try {
+        const wrapper = document.querySelector('.wrapper');
+        const content = document.querySelector('.content');
+        const interceptor = document.querySelector('.interceptor');
+
+        const offset = initWrapperScrollPosition(wrapper);
+
+        initDigits();
+        initUserMarker(3);
+        initLadderGradient(3);
+
+        let isScrolling;
+
+        const syncScroll = (value) => {
+          // console.log('syncScroll', value);
+          window.clearTimeout(isScrolling);
+          isScrolling = setTimeout(() => {
+            wrapper.scrollLeft = value;
+            wrapper.scrollTop = CONFIG.ladderWidth - offset - value;
+          }, 5);
+        };
+
+        const scrollingController = () => {
+          let isScrolling;
+
+          return {};
+        };
+
+        interceptor.addEventListener('scroll', (e) => {
+          requestAnimationFrame(() => {
+            syncScroll(e.target.scrollLeft);
+          });
+        });
+
+        function initDigits() {
+          const digits = document.querySelector('.digits');
+          for (let index = 0; index < 100; index += 1) {
+            const element = document.createElement('div');
+            element.classList.add('digit');
+            element.textContent = index + 1;
+            element.style.bottom = `calc(${index * 1}% + 27px)`;
+            element.style.left = `calc(${index * 1}%)`;
+            digits.append(element);
+          }
+        }
+
+        function initUserMarker(step) {
+          const userMarker = document.querySelector('.user-marker');
+          userMarker.style.bottom = `calc(${step}% + 10px)`;
+          userMarker.style.left = `calc(${step - 1}% + 9px)`;
+        }
+
+        function initLadderGradient(step) {
+          const start = document.querySelector('.ladder-gradient-start');
+          const end = document.querySelector('.ladder-gradient-end');
+          start.setAttribute('offset', `${step}.1%`);
+          end.setAttribute('offset', `${step}.5%`);
+        }
+
+        function initWrapperScrollPosition(wrapper) {
+          const windowInnerWidth = window.innerWidth;
+          const offset = Math.min(windowInnerWidth, CONFIG.maxWrapperWidth);
+          wrapper.scrollTop = CONFIG.ladderWidth - offset;
+          wrapper.scrollLeft = 0;
+          return offset;
+        }
+      } catch (error) {
+        alert(error);
+      }
+    </script>
+  </body>
+</html>

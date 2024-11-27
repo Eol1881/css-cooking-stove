@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+
+  <body class="m-0 h-screen bg-[#312e26]">
+    <div class="relative h-[100vw] max-h-[500px] w-[100vw] max-w-[500px] bg-white">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <div class="interceptor absolute z-50 h-full w-full overflow-y-hidden bg-yellow-700/20">
+        <div class="h-2 w-[5000px]"></div>
+      </div>
+      <div class="wrapper h-full w-full overflow-auto">
+        <div class="content relative h-[5000px] w-[5000px]">
+          <svg fill="none" class="absolute bottom-0 left-0 h-[5000px] w-[5000px]">
+            <path
+              stroke="url(#paint0_linear_1887_3134)"
+              stroke="#F58859"
+              stroke-width="4"
+              stroke-linejoin="round"
+              d="M0 5000
+
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50
+
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50
+
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50
+
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50
+
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50
+
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50
+
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50
+
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50
+
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50
+
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50 
+              v-50 h50
+              "
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_1887_3134"
+                x2="0%"
+                y2="0%"
+                x1="100%"
+                y1="0%"
+                gradientUnits="userSpaceOnUse"
+                gradientTransform="rotate(90)"
+              >
+                <stop offset="0%" stop-color="#F58859" />
+                <stop offset="6.1%" stop-color="#F58859" />
+                <stop offset="6.6%" stop-color="#EDEDED" />
+                <stop offset="100%" stop-color="#EDEDED" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <div class="image1 absolute bottom-[calc(6%+6px)] left-[calc(5%+6px)] h-[36px] w-[36px] rounded-full bg-cover"></div>
+
+          <div class="digits relative h-full w-full"></div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .interceptor,
+      .wrapper {
+        /* Скрывает полосу прокрутки + Для Internet Explorer и Edge*/
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .content {
+        /* background-image: url('https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?ixid=2yJhcHBfaWQiOjEyMDd9&fm=jpg&w=700&h=700&fit=min'); */
+        /* background-image: url('https://static.tildacdn.com/tild3062-3632-4934-b561-396266353164/11111.png'); */
+      }
+      .image1 {
+        background-image: url('https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?ixid=2yJhcHBfaWQiOjEyMDd9&fm=jpg&w=700&h=700&fit=min');
+      }
+      .digit {
+        position: absolute;
+        font-weight: bold;
+        /* background-color: red; */
+        width: 50px;
+        text-align: center;
+      }
+    </style>
+    <script>
+      try {
+        const wrapper = document.querySelector('.wrapper');
+        const content = document.querySelector('.content');
+        const interceptor = document.querySelector('.interceptor');
+
+        const offset = initWrapperScrollPosition(wrapper);
+
+        initDigits();
+
+        let isScrolling;
+
+        const syncScroll = (value) => {
+          // console.log('syncScroll', value);
+
+          window.clearTimeout(isScrolling);
+          isScrolling = setTimeout(() => {
+            wrapper.scrollLeft = value;
+            wrapper.scrollTop = 5000 - offset - value;
+          }, 5);
+        };
+
+        interceptor.addEventListener('scroll', (e) => {
+          requestAnimationFrame(() => {
+            syncScroll(e.target.scrollLeft);
+          });
+        });
+
+        function initDigits() {
+          const digits = document.querySelector('.digits');
+          for (let index = 0; index < 100; index++) {
+            const element = document.createElement('div');
+            element.classList.add('digit');
+            element.textContent = index + 1;
+            element.style.bottom = `calc(${index * 1}% + 22px)`;
+            element.style.left = `calc(${index * 1}%)`;
+            digits.append(element);
+          }
+        }
+
+        function initWrapperScrollPosition(wrapper) {
+          const windowInnerWidth = window.innerWidth;
+          const offset = Math.min(windowInnerWidth, 500);
+          wrapper.scrollTop = 5000 - offset;
+          wrapper.scrollLeft = 0;
+          return offset;
+        }
+      } catch (error) {
+        alert(error);
+      }
+    </script>
+  </body>
+</html>
