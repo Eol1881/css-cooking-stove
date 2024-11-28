@@ -177,7 +177,7 @@
         </div>
       </div>
       <div class="relative mx-auto mt-5 h-2 w-[95%] rounded-full bg-[#EDEDED]">
-        <div class="scrollbar-thumb h-full w-10 rounded-full bg-[#B4B4C8]"></div>
+        <div class="scrollbar-thumb h-full w-10 rounded-full bg-[#B4B4C8] transition-all duration-500"></div>
         <div class="scrollbar-current-location absolute top-0 z-10 h-2 w-2 rounded-full bg-[#F58859]"></div>
       </div>
     </div>
@@ -264,6 +264,7 @@
           currentLocation.style.left = step + 5 < 10 ? `5%` : step + 5 > 90 ? `95%` : `${step + 1}%`;
 
           let isScrolling;
+          let isPidring;
 
           const x1 = CONFIG.ladderWidth - interceptorWidth;
           const x2 = thumbWrapperWidth - thumbWidth;
@@ -274,13 +275,21 @@
             isScrolling = setTimeout(() => {
               wrapper.scrollLeft = value;
               wrapper.scrollTop = CONFIG.ladderWidth - offset - value;
-              thumb.style.transform = `translateX(${(value / x1) * x2}px)`;
+              // thumb.style.transform = `translateX(${(value / x1) * x2}px)`;
             }, 10);
+          };
+
+          const syncThumb = (value) => {
+            clearTimeout(isPidring);
+            isPidring = setTimeout(() => {
+              thumb.style.transform = `translateX(${(value / x1) * x2}px)`;
+            }, 100);
           };
 
           interceptor.addEventListener('scroll', (e) => {
             requestAnimationFrame(() => {
               syncScroll(e.target.scrollLeft);
+              syncThumb(e.target.scrollLeft);
             });
           });
         }
