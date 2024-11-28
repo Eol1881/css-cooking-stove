@@ -192,7 +192,9 @@
         display: none;
       }
       .user-marker {
-        background-image: url('https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?ixid=2yJhcHBfaWQiOjEyMDd9&fm=jpg&w=700&h=700&fit=min');
+        background-image: url('https://static.tildacdn.com/tild3336-6432-4463-b434-373731326266/ghfghfgh.jpg');
+        background-position: center;
+        background-size: contain;
       }
       .checkpoints {
         font-size: 20px;
@@ -272,7 +274,7 @@
             isScrolling = setTimeout(() => {
               wrapper.scrollLeft = value;
               wrapper.scrollTop = CONFIG.ladderWidth - offset - value;
-              // thumb.style.transform = `translateX(${(value / x1) * x2}px)`;
+              thumb.style.transform = `translateX(${(value / x1) * x2}px)`;
             }, 10);
           };
 
@@ -332,7 +334,7 @@
         function renderUserMarker(step) {
           const userMarker = document.querySelector('.user-marker');
           userMarker.style.bottom = `calc(${step * 0.99}% + 10px)`;
-          userMarker.style.left = `calc(${step * 0.99 - 1}% + 11px)`;
+          userMarker.style.left = `calc(${step * 0.99 - 1}% + 12px)`;
         }
 
         function renderLadderGradient(step) {
