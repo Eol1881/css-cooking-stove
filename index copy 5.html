@@ -265,27 +265,29 @@
           interceptor.scrollLeft = 0 + (step - CONFIG.defaultStepOffset) * CONFIG.stepWidth;
           currentLocation.style.left = step + 5 < 10 ? `5%` : step + 5 > 90 ? `95%` : `${step + 1}%`;
 
-          let scheduledAnimationFrame = false;
+          let scrollLastUpdate;
+          let thumbLastUpdate;
 
-          const sync = () => {
-            const scrollLeft = interceptor.scrollLeft;
-
-            // Wrapper synchronization
-            wrapper.scrollLeft = scrollLeft;
-            wrapper.scrollTop = CONFIG.ladderWidth - offset - scrollLeft;
-
-            // Thumb synchronization
-            const thumbPosition = Math.floor(scrollLeft * thumbRatio);
-            thumb.style.transform = `translateX(${thumbPosition}px)`;
-
-            scheduledAnimationFrame = false;
+          const syncScroll = (value) => {
+            // console.log('syncScroll', value, Math.floor((value / ladderWidthDiff) * 100) + '%');
+            if (!scrollLastUpdate || Date.now() - scrollLastUpdate > 10) {
+              wrapper.scrollLeft = value;
+              wrapper.scrollTop = CONFIG.ladderWidth - offset - value;
+            }
           };
 
-          interceptor.addEventListener('scroll', () => {
-            if (!scheduledAnimationFrame) {
-              scheduledAnimationFrame = true;
-              requestAnimationFrame(sync);
+          const syncThumb = (value) => {
+            if (!thumbLastUpdate || Date.now() - thumbLastUpdate > 10) {
+              isPidring = Date.now();
+              thumb.style.transform = `translateX(${Math.floor(value * thumbRatio)}px)`;
             }
+          };
+
+          interceptor.addEventListener('scroll', (e) => {
+            requestAnimationFrame(() => {
+              syncScroll(e.target.scrollLeft);
+              syncThumb(e.target.scrollLeft);
+            });
           });
         }
 

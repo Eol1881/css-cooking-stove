@@ -259,33 +259,39 @@
           const interceptorWidth = interceptor.offsetWidth;
           const thumbWidth = thumb.offsetWidth;
 
-          const ladderWidthDiff = CONFIG.ladderWidth - interceptorWidth;
-          const thumbRatio = (thumbWrapperWidth - thumbWidth) / ladderWidthDiff;
-
           interceptor.scrollLeft = 0 + (step - CONFIG.defaultStepOffset) * CONFIG.stepWidth;
+
           currentLocation.style.left = step + 5 < 10 ? `5%` : step + 5 > 90 ? `95%` : `${step + 1}%`;
 
-          let scheduledAnimationFrame = false;
+          let isScrolling;
+          let thumbLastUpdate;
 
-          const sync = () => {
-            const scrollLeft = interceptor.scrollLeft;
+          const x1 = CONFIG.ladderWidth - interceptorWidth;
+          const x2 = thumbWrapperWidth - thumbWidth;
+          const ratio = x2 / x1;
 
-            // Wrapper synchronization
-            wrapper.scrollLeft = scrollLeft;
-            wrapper.scrollTop = CONFIG.ladderWidth - offset - scrollLeft;
-
-            // Thumb synchronization
-            const thumbPosition = Math.floor(scrollLeft * thumbRatio);
-            thumb.style.transform = `translateX(${thumbPosition}px)`;
-
-            scheduledAnimationFrame = false;
+          const syncScroll = (value) => {
+            // console.log('syncScroll', value, Math.floor((value / (CONFIG.ladderWidth - interceptorWidth)) * 100) + '%');
+            clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+              wrapper.scrollLeft = value;
+              wrapper.scrollTop = CONFIG.ladderWidth - offset - value;
+              // thumb.style.transform = `translateX(${(value / x1) * x2}px)`;
+            }, 10);
           };
 
-          interceptor.addEventListener('scroll', () => {
-            if (!scheduledAnimationFrame) {
-              scheduledAnimationFrame = true;
-              requestAnimationFrame(sync);
+          const syncThumb = (value) => {
+            if (!thumbLastUpdate || Date.now() - thumbLastUpdate > 10) {
+              isPidring = Date.now();
+              thumb.style.transform = `translateX(${Math.floor(value * ratio)}px)`;
             }
+          };
+
+          interceptor.addEventListener('scroll', (e) => {
+            requestAnimationFrame(() => {
+              syncScroll(e.target.scrollLeft);
+              syncThumb(e.target.scrollLeft);
+            });
           });
         }
 
