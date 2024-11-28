@@ -188,6 +188,9 @@
         scrollbar-width: none;
         -ms-overflow-style: none;
       }
+      .wrapper {
+        will-change: scroll-top scroll-left;
+      }
       .wrapper::-webkit-scrollbar {
         display: none;
       }
@@ -231,6 +234,9 @@
         height: 30px;
         background-image: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 15%, rgba(0, 0, 0, 0) 100%);
       }
+      .scrollbar-thumb {
+        will-change: transform;
+      }
     </style>
     <script>
       const CONFIG = {
@@ -266,17 +272,20 @@
           currentLocation.style.left = step + 5 < 10 ? `5%` : step + 5 > 90 ? `95%` : `${step + 1}%`;
 
           let scheduledAnimationFrame = false;
+          let lastScrollLeft = 0;
 
           const sync = () => {
             const scrollLeft = interceptor.scrollLeft;
 
-            // Wrapper synchronization
-            wrapper.scrollLeft = scrollLeft;
-            wrapper.scrollTop = CONFIG.ladderWidth - offset - scrollLeft;
+            if (scrollLeft !== lastScrollLeft) {
+              wrapper.scrollLeft = scrollLeft;
+              wrapper.scrollTop = CONFIG.ladderWidth - offset - scrollLeft;
 
-            // Thumb synchronization
-            const thumbPosition = Math.floor(scrollLeft * thumbRatio);
-            thumb.style.transform = `translateX(${thumbPosition}px)`;
+              const thumbPosition = Math.floor(scrollLeft * thumbRatio);
+              thumb.style.transform = `translateX(${thumbPosition}px)`;
+
+              lastScrollLeft = scrollLeft;
+            }
 
             scheduledAnimationFrame = false;
           };
