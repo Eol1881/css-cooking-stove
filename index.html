@@ -22,7 +22,7 @@
         <div class="wrapper -mr-4 h-full w-full overflow-auto">
           <div class="content relative h-[6060px] w-[6060px]">
             <svg fill="none" class="ladder-fill absolute bottom-0 left-0 h-full w-full">
-              <path class="base" stroke="" stroke-width="0" stroke-linejoin="round" fill="#F588593D" />
+              <path class="base duration-300" stroke="" stroke-width="0" stroke-linejoin="round" fill="#F588593D" />
               <path class="line" stroke="" stroke-width="0" stroke-linejoin="round" fill="url(#fff)" />
               <defs>
                 <linearGradient id="fff" gradientTransform="rotate(90)">
@@ -177,7 +177,7 @@
         </div>
       </div>
       <div class="relative mx-auto mt-5 h-2 w-[95%] rounded-full bg-[#EDEDED]">
-        <div class="scrollbar-thumb h-full w-10 rounded-full bg-[#B4B4C8] transition-all duration-500"></div>
+        <div class="scrollbar-thumb h-full w-10 rounded-full bg-[#B4B4C8]"></div>
         <div class="scrollbar-current-location absolute top-0 z-10 h-2 w-2 rounded-full bg-[#F58859]"></div>
       </div>
     </div>
@@ -275,7 +275,7 @@
             isScrolling = setTimeout(() => {
               wrapper.scrollLeft = value;
               wrapper.scrollTop = CONFIG.ladderWidth - offset - value;
-              // thumb.style.transform = `translateX(${(value / x1) * x2}px)`;
+              thumb.style.transform = `translateX(${(value / x1) * x2}px)`;
             }, 10);
           };
 
@@ -289,7 +289,7 @@
           interceptor.addEventListener('scroll', (e) => {
             requestAnimationFrame(() => {
               syncScroll(e.target.scrollLeft);
-              syncThumb(e.target.scrollLeft);
+              // syncThumb(e.target.scrollLeft);
             });
           });
         }
