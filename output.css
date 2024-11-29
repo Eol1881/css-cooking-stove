@@ -782,3 +782,7 @@ video {
 .duration-500 {
   transition-duration: 500ms;
 }
+
+.duration-300 {
+  transition-duration: 300ms;
+}
