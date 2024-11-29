@@ -226,7 +226,7 @@
       }
       .corner-gradient {
         width: 50%;
-        height: 40px;
+        height: 30px;
         background-image: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 30%, rgba(0, 0, 0, 0) 100%);
       }
       .bottom-gradient {
@@ -247,7 +247,7 @@
       };
 
       try {
-        const STEP = 27;
+        const STEP = 77;
 
         const offset = initWrapperScrollPosition(STEP);
         initScrollingController(offset, STEP);
@@ -353,8 +353,8 @@
         function renderLadderGradient(step) {
           const start = document.querySelector('.ladder-gradient-start');
           const end = document.querySelector('.ladder-gradient-end');
-          start.setAttribute('offset', `${step}%`);
-          end.setAttribute('offset', `${step}.4%`);
+          start.setAttribute('offset', `${step * 0.99}%`);
+          end.setAttribute('offset', `${step * 0.99 + 0.4}%`);
         }
 
         function renderLadderFill(step) {
